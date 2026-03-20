@@ -118,11 +118,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(var(--menu-item-scale, 1));
   transition: transform var(--transition-slow);
 }
 
 .menu-item:hover .menu-item__image img {
-  transform: scale(1.08);
+  transform: scale(calc(var(--menu-item-scale, 1) + 0.08));
+}
+
+.menu-item__img--veg-puff {
+  --menu-item-scale: 0.84;
+  object-fit: contain;
+  object-position: center;
+}
+
+.menu-item__img--egg-puff {
+  object-position: center;
 }
 
 .menu-item__badge {

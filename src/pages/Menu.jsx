@@ -3,6 +3,7 @@ import './Menu.css';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const menuImageFallback = 'https://images.unsplash.com/photo-1756137943313-fdea9bce6bdd?w=600&h=400&fit=crop';
 
   const categories = [
     { id: 'all', name: 'All Items' },
@@ -22,11 +23,11 @@ const Menu = () => {
     { id: 6, category: 'cakes', name: 'Cupcakes (Box of 6)', description: 'Assorted flavors, perfect for sharing', price: 180, image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=400&fit=crop' },
 
     // Snacks - Using accurate images for Indian bakery items
-    { id: 7, category: 'snacks', name: 'Veg Puff', description: 'Flaky pastry with spiced potato filling', price: 20, image: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=600&h=400&fit=crop', badge: 'Popular' },
-    { id: 8, category: 'snacks', name: 'Egg Puff', description: 'Golden crust with seasoned egg', price: 25, image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop' },
-    { id: 9, category: 'snacks', name: 'Chicken Puff', description: 'Spicy minced chicken in pastry', price: 35, image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600&h=400&fit=crop' },
+    { id: 7, category: 'snacks', name: 'Veg Puff', description: 'Flaky pastry with spiced potato filling', price: 20, image: 'https://images.unsplash.com/photo-1756137943313-fdea9bce6bdd?w=600&h=400&fit=crop', badge: 'Popular', imageClass: 'menu-item__img--veg-puff' },
+    { id: 8, category: 'snacks', name: 'Egg Puff', description: 'Golden crust with seasoned egg', price: 25, image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Egg_Puff1.jpg', imageClass: 'menu-item__img--egg-puff' },
+    { id: 9, category: 'snacks', name: 'Chicken Puff', description: 'Spicy minced chicken in pastry', price: 35, image: 'https://images.unsplash.com/photo-1756137949459-8aad8455d040?w=600&h=400&fit=crop' },
     { id: 10, category: 'snacks', name: 'Samosa (2 pcs)', description: 'Crispy triangles with potato masala', price: 30, image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop' },
-    { id: 11, category: 'snacks', name: 'Bread Roll', description: 'Deep fried with spicy filling', price: 25, image: 'https://images.unsplash.com/photo-1612182062422-0d4bf84c0396?w=600&h=400&fit=crop' },
+    { id: 11, category: 'snacks', name: 'Bread Roll', description: 'Deep fried with spicy filling', price: 25, image: 'https://images.unsplash.com/photo-1743012492397-c6680eaa2c5d?w=600&h=400&fit=crop' },
     { id: 12, category: 'snacks', name: 'Cutlet', description: 'Mashed potato patty, crispy fried', price: 25, image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=400&fit=crop' },
 
     // Pizza & Fast Food
@@ -92,7 +93,16 @@ const Menu = () => {
             {filteredItems.map((item) => (
               <div key={item.id} className="menu-item premium-card">
                 <div className="menu-item__image">
-                  <img src={item.image} alt={item.name} loading="lazy" />
+                  <img
+                    className={item.imageClass || ''}
+                    src={item.image}
+                    alt={item.name}
+                    loading="lazy"
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = menuImageFallback;
+                    }}
+                  />
                   {item.badge && (
                     <span className="menu-item__badge">{item.badge}</span>
                   )}
