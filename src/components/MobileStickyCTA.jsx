@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './MobileStickyCTA.css';
 
 const MobileStickyCTA = () => {
@@ -21,12 +20,6 @@ const MobileStickyCTA = () => {
         </svg>
         <span>WhatsApp</span>
       </a>
-      <Link to="/menu" className="mobile-sticky__btn mobile-sticky__btn--menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M3 6h18M3 12h18M3 18h18"/>
-        </svg>
-        <span>View Menu</span>
-      </Link>
     </div>
   );
 };

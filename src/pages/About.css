@@ -340,17 +340,36 @@
   }
 
   .about-story__images {
-    min-height: 440px;
+    min-height: 380px;
+    max-width: 90%;
+  }
+
+  .about-story__image img {
+    object-fit: cover;
+  }
+
+  .about-story__image--main {
+    width: 78%;
+    height: 100%;
   }
 
   .about-story__image--secondary {
-    width: 50%;
-    height: 43%;
+    width: 52%;
+    height: 45%;
   }
 
   .about-story__badge {
     left: 12px;
     top: 14px;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .about-story__badge-number {
+    font-size: 1.8rem;
+  }
+
+  .about-story__badge-text {
+    font-size: 0.72rem;
   }
 
   .about-timeline__items::before {
@@ -378,5 +397,30 @@
 
   .about-cta__buttons .btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-story__images {
+    min-height: 320px;
+  }
+
+  .about-story__image--main {
+    width: 100%;
+    max-width: 240px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .about-story__image--secondary {
+    display: none;
+  }
+
+  .about-story__badge {
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: -18px;
   }
 }

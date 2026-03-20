@@ -133,7 +133,7 @@ const Home = () => {
               <a href="tel:+918778873773" className="btn btn-primary btn-lg">
                 Call to Order
               </a>
-              <Link to="/menu" className="btn btn-outline btn-lg">
+              <Link to="/menu" className="btn btn-outline btn-lg hero__cta-menu">
                 View Menu
               </Link>
               <a

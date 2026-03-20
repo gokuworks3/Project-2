@@ -227,7 +227,7 @@ const Reviews = () => {
                 WhatsApp Order
               </a>
               <a
-                href="https://maps.google.com/?q=66/3C+Milakai+Thottam+Opposite+Sakthi+Engineering+College+Venkitapuram+Post+Coimbatore+Tamil+Nadu+641062"
+                href="https://www.google.com/maps/place/Rudhra+bakes/@11.039596,77.0749833,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba8570475c0af53:0xc3250635a5526e73!8m2!3d11.0395907!4d77.0775582!16s%2Fg%2F11n0cxcc28?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline btn-lg"

@@ -447,11 +447,34 @@
     padding: 6.8rem 0 4rem;
   }
 
+  .hero__cta-menu {
+    display: none;
+  }
+
   .hero__trust {
     grid-template-columns: 1fr;
   }
 
   .hero__visual {
+    min-height: 320px;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .hero__image--main {
+    width: 100%;
+    max-width: 280px;
+    height: 320px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .hero__image--secondary {
+    display: none;
+  }
+
+  .hero__floating-card {
     display: none;
   }
 
@@ -465,5 +488,60 @@
 
   .final-cta__buttons .btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 2.2rem;
+  }
+
+  .hero__badge {
+    font-size: 0.72rem;
+  }
+
+  .hero__ctas .btn {
+    font-size: 0.88rem;
+    padding: 0.95rem 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero__image--main {
+    max-width: 260px;
+    height: 300px;
+  }
+
+  .popular-card__image-wrap {
+    height: 200px;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .hero__ctas {
+    gap: 0.7rem;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
   }
 }

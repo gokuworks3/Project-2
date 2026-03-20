@@ -231,6 +231,10 @@
     min-height: 138px;
   }
 
+  .menu-item__image img {
+    object-fit: cover;
+  }
+
   .menu-item__content {
     display: flex;
     flex-direction: column;
@@ -260,5 +264,44 @@
 
   .menu-cta__actions .btn {
     width: 100%;
-   }
- }
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-item {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .menu-item__image {
+    min-height: 120px;
+  }
+
+  .menu-item__name {
+    font-size: 0.98rem;
+  }
+
+  .menu-item__desc {
+    font-size: 0.85rem;
+  }
+
+  .menu-tab {
+    font-size: 0.78rem;
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .menu-hero__meta span {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .menu-cta__content h3 {
+    font-size: 1.25rem;
+  }
+
+  .menu-cta__content p {
+    font-size: 0.88rem;
+  }
+}
+

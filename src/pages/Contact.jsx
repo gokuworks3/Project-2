@@ -114,7 +114,7 @@ const Contact = () => {
                   WhatsApp
                 </a>
                 <a
-                  href="https://maps.google.com/?q=66/3C+Milakai+Thottam+Opposite+Sakthi+Engineering+College+Venkitapuram+Post+Coimbatore+Tamil+Nadu+641062"
+                  href="https://www.google.com/maps/place/Rudhra+bakes/@11.039596,77.0749833,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba8570475c0af53:0xc3250635a5526e73!8m2!3d11.0395907!4d77.0775582!16s%2Fg%2F11n0cxcc28?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary btn-lg"
@@ -132,7 +132,7 @@ const Contact = () => {
             <div className="contact-map">
               <div className="contact-map__wrapper">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.0!2d76.95!3d11.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzAwLjAiTiA3NsKwNTcnMDAuMCJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2286684869707!2d77.0749833!3d11.0395907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8570475c0af53%3A0xc3250635a5526e73!2sRudhra%20bakes!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -143,7 +143,7 @@ const Contact = () => {
                 ></iframe>
               </div>
               <a
-                href="https://maps.google.com/?q=66/3C+Milakai+Thottam+Opposite+Sakthi+Engineering+College+Venkitapuram+Post+Coimbatore+Tamil+Nadu+641062"
+                href="https://www.google.com/maps/place/Rudhra+bakes/@11.039596,77.0749833,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba8570475c0af53:0xc3250635a5526e73!8m2!3d11.0395907!4d77.0775582!16s%2Fg%2F11n0cxcc28?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-map__link btn btn-highlight"

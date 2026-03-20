@@ -100,6 +100,11 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 a {
@@ -406,6 +411,75 @@ p {
 
   body {
     padding-bottom: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  }
+
+  .btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  .btn-sm {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.78rem;
+  }
+
+  .btn-lg {
+    padding: 1rem 1.7rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --container-padding: 0.9rem;
+  }
+
+  .section {
+    padding: var(--space-lg) 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+
+  .btn {
+    padding: 0.85rem 1.3rem;
+    font-size: 0.85rem;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
   }
 }
 

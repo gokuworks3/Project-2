@@ -295,3 +295,57 @@
     width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .reviews-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 0.85rem;
+  }
+
+  .reviews-stats__item {
+    padding: 0.75rem;
+  }
+
+  .reviews-stats__value {
+    font-size: 1.7rem;
+  }
+
+  .reviews-stats__label {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .review-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .review-card__avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .review-card__info strong {
+    font-size: 0.9rem;
+  }
+
+  .review-card__info span {
+    font-size: 0.74rem;
+  }
+
+  .review-card__text {
+    font-size: 0.88rem;
+  }
+
+  .why-us-card__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .why-us-card__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+}

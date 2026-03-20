@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,25 @@ const Navbar = () => {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [isMobileMenuOpen]);
 
   const navLinks = [
@@ -45,7 +65,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <nav className={`navbar__nav ${isMobileMenuOpen ? 'navbar__nav--open' : ''}`}>
+        <nav id="mobile-navigation" className={`navbar__nav ${isMobileMenuOpen ? 'navbar__nav--open' : ''}`}>
           <ul className="navbar__nav-list">
             {navLinks.map((link) => (
               <li key={link.to}>
@@ -61,25 +81,14 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="navbar__nav-cta">
-            <span className="navbar__badge">
-              <span className="navbar__badge-dot"></span>
-              Open 24/7
-            </span>
-            <a href="tel:+918778873773" className="btn btn-primary btn-sm" onClick={() => setIsMobileMenuOpen(false)}>
-              Call to Order
-            </a>
-            <a
-              href="https://wa.me/918778873773?text=Hi%20Rudhra%20Bakes%2C%20I%20want%20to%20place%20an%20order."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline btn-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              WhatsApp
-            </a>
-          </div>
         </nav>
+
+        <button
+          type="button"
+          className={`navbar__backdrop ${isMobileMenuOpen ? 'navbar__backdrop--visible' : ''}`}
+          aria-label="Close mobile menu"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></button>
 
         <div className="navbar__actions">
           <div className="navbar__meta">
@@ -99,6 +108,7 @@ const Navbar = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           <span></span>
           <span></span>
