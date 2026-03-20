@@ -14,36 +14,36 @@ const Menu = () => {
 
   const menuItems = [
     // Cakes
-    { id: 1, category: 'cakes', name: 'Chocolate Truffle Cake', description: 'Rich, decadent chocolate layers with ganache', price: 450, image: 'https://source.unsplash.com/600x400/?chocolate,truffle,cake,bakery', badge: 'Bestseller' },
-    { id: 2, category: 'cakes', name: 'Black Forest Cake', description: 'Classic cherry and cream delight', price: 400, image: 'https://source.unsplash.com/600x400/?black,forest,cake,cherry,cream' },
-    { id: 3, category: 'cakes', name: 'Vanilla Pastry', description: 'Light and fluffy vanilla sponge', price: 45, image: 'https://source.unsplash.com/600x400/?vanilla,pastry,cake,bakery' },
-    { id: 4, category: 'cakes', name: 'Fresh Fruit Cake', description: 'Seasonal fruits with fresh cream', price: 500, image: 'https://source.unsplash.com/600x400/?fruit,cake,cream,bakery' },
-    { id: 5, category: 'cakes', name: 'Red Velvet Slice', description: 'Cream cheese frosted velvet', price: 75, image: 'https://source.unsplash.com/600x400/?red,velvet,cake,slice' },
-    { id: 6, category: 'cakes', name: 'Cupcakes (Box of 6)', description: 'Assorted flavors, perfect for sharing', price: 180, image: 'https://source.unsplash.com/600x400/?cupcakes,box,bakery' },
+    { id: 1, category: 'cakes', name: 'Chocolate Truffle Cake', description: 'Rich, decadent chocolate layers with ganache', price: 450, image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop', badge: 'Bestseller' },
+    { id: 2, category: 'cakes', name: 'Black Forest Cake', description: 'Classic cherry and cream delight', price: 400, image: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=400&fit=crop' },
+    { id: 3, category: 'cakes', name: 'Vanilla Pastry', description: 'Light and fluffy vanilla sponge', price: 45, image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop' },
+    { id: 4, category: 'cakes', name: 'Fresh Fruit Cake', description: 'Seasonal fruits with fresh cream', price: 500, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop' },
+    { id: 5, category: 'cakes', name: 'Red Velvet Slice', description: 'Cream cheese frosted velvet', price: 75, image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=600&h=400&fit=crop' },
+    { id: 6, category: 'cakes', name: 'Cupcakes (Box of 6)', description: 'Assorted flavors, perfect for sharing', price: 180, image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=400&fit=crop' },
 
     // Snacks - Using accurate images for Indian bakery items
-    { id: 7, category: 'snacks', name: 'Veg Puff', description: 'Flaky pastry with spiced potato filling', price: 20, image: 'https://source.unsplash.com/600x400/?vegetable,puff,pastry', badge: 'Popular' },
-    { id: 8, category: 'snacks', name: 'Egg Puff', description: 'Golden crust with seasoned egg', price: 25, image: 'https://source.unsplash.com/600x400/?egg,puff,pastry' },
-    { id: 9, category: 'snacks', name: 'Chicken Puff', description: 'Spicy minced chicken in pastry', price: 35, image: 'https://source.unsplash.com/600x400/?chicken,puff,pastry' },
-    { id: 10, category: 'snacks', name: 'Samosa (2 pcs)', description: 'Crispy triangles with potato masala', price: 30, image: 'https://source.unsplash.com/600x400/?samosa,indian,snack' },
-    { id: 11, category: 'snacks', name: 'Bread Roll', description: 'Deep fried with spicy filling', price: 25, image: 'https://source.unsplash.com/600x400/?bread,roll,fried,snack' },
-    { id: 12, category: 'snacks', name: 'Cutlet', description: 'Mashed potato patty, crispy fried', price: 25, image: 'https://source.unsplash.com/600x400/?vegetable,cutlet,snack' },
+    { id: 7, category: 'snacks', name: 'Veg Puff', description: 'Flaky pastry with spiced potato filling', price: 20, image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop', badge: 'Popular' },
+    { id: 8, category: 'snacks', name: 'Egg Puff', description: 'Golden crust with seasoned egg', price: 25, image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop' },
+    { id: 9, category: 'snacks', name: 'Chicken Puff', description: 'Spicy minced chicken in pastry', price: 35, image: 'https://images.unsplash.com/photo-1619158401616-c8c88d0d6d49?w=600&h=400&fit=crop' },
+    { id: 10, category: 'snacks', name: 'Samosa (2 pcs)', description: 'Crispy triangles with potato masala', price: 30, image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=400&fit=crop' },
+    { id: 11, category: 'snacks', name: 'Bread Roll', description: 'Deep fried with spicy filling', price: 25, image: 'https://images.unsplash.com/photo-1603046891726-36bfd957e0a7?w=600&h=400&fit=crop' },
+    { id: 12, category: 'snacks', name: 'Cutlet', description: 'Mashed potato patty, crispy fried', price: 25, image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&h=400&fit=crop' },
 
     // Pizza & Fast Food
-    { id: 13, category: 'pizza', name: 'Veg Pizza (Regular)', description: 'Loaded with fresh vegetables and cheese', price: 120, image: 'https://source.unsplash.com/600x400/?veg,pizza,cheese', badge: 'Popular' },
-    { id: 14, category: 'pizza', name: 'Chicken Pizza (Regular)', description: 'Tender chicken with special sauce', price: 150, image: 'https://source.unsplash.com/600x400/?chicken,pizza' },
-    { id: 15, category: 'pizza', name: 'Veg Burger', description: 'Crispy patty with fresh veggies', price: 60, image: 'https://source.unsplash.com/600x400/?veg,burger' },
-    { id: 16, category: 'pizza', name: 'Chicken Burger', description: 'Juicy chicken with special mayo', price: 80, image: 'https://source.unsplash.com/600x400/?chicken,burger' },
-    { id: 17, category: 'pizza', name: 'Veg Sandwich', description: 'Grilled with cheese and veggies', price: 50, image: 'https://source.unsplash.com/600x400/?vegetable,grilled,sandwich' },
-    { id: 18, category: 'pizza', name: 'Club Sandwich', description: 'Triple-decker with chicken & egg', price: 90, image: 'https://source.unsplash.com/600x400/?club,sandwich,chicken,egg' },
+    { id: 13, category: 'pizza', name: 'Veg Pizza (Regular)', description: 'Loaded with fresh vegetables and cheese', price: 120, image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&h=400&fit=crop', badge: 'Popular' },
+    { id: 14, category: 'pizza', name: 'Chicken Pizza (Regular)', description: 'Tender chicken with special sauce', price: 150, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop' },
+    { id: 15, category: 'pizza', name: 'Veg Burger', description: 'Crispy patty with fresh veggies', price: 60, image: 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&h=400&fit=crop' },
+    { id: 16, category: 'pizza', name: 'Chicken Burger', description: 'Juicy chicken with special mayo', price: 80, image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=400&fit=crop' },
+    { id: 17, category: 'pizza', name: 'Veg Sandwich', description: 'Grilled with cheese and veggies', price: 50, image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&h=400&fit=crop' },
+    { id: 18, category: 'pizza', name: 'Club Sandwich', description: 'Triple-decker with chicken & egg', price: 90, image: 'https://images.unsplash.com/photo-1619740455993-8ccefc811f04?w=600&h=400&fit=crop' },
 
     // Beverages
-    { id: 19, category: 'beverages', name: 'Filter Coffee', description: 'Strong, authentic South Indian brew', price: 25, image: 'https://source.unsplash.com/600x400/?filter,coffee,indian', badge: 'Must Try' },
-    { id: 20, category: 'beverages', name: 'Masala Tea', description: 'Spiced chai with ginger', price: 20, image: 'https://source.unsplash.com/600x400/?masala,chai,tea' },
-    { id: 21, category: 'beverages', name: 'Badam Milk', description: 'Creamy almond milk, hot or cold', price: 40, image: 'https://source.unsplash.com/600x400/?almond,milk,drink' },
-    { id: 22, category: 'beverages', name: 'Fresh Lime Soda', description: 'Refreshing lime with soda', price: 30, image: 'https://source.unsplash.com/600x400/?lime,soda,drink' },
-    { id: 23, category: 'beverages', name: 'Mango Milkshake', description: 'Thick and creamy mango shake', price: 60, image: 'https://source.unsplash.com/600x400/?mango,milkshake' },
-    { id: 24, category: 'beverages', name: 'Cold Coffee', description: 'Chilled coffee with ice cream', price: 70, image: 'https://source.unsplash.com/600x400/?cold,coffee,iced' },
+    { id: 19, category: 'beverages', name: 'Filter Coffee', description: 'Strong, authentic South Indian brew', price: 25, image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop', badge: 'Must Try' },
+    { id: 20, category: 'beverages', name: 'Masala Tea', description: 'Spiced chai with ginger', price: 20, image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&h=400&fit=crop' },
+    { id: 21, category: 'beverages', name: 'Badam Milk', description: 'Creamy almond milk, hot or cold', price: 40, image: 'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600&h=400&fit=crop' },
+    { id: 22, category: 'beverages', name: 'Fresh Lime Soda', description: 'Refreshing lime with soda', price: 30, image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&h=400&fit=crop' },
+    { id: 23, category: 'beverages', name: 'Mango Milkshake', description: 'Thick and creamy mango shake', price: 60, image: 'https://images.unsplash.com/photo-1578535219549-b55d50423897?w=600&h=400&fit=crop' },
+    { id: 24, category: 'beverages', name: 'Cold Coffee', description: 'Chilled coffee with ice cream', price: 70, image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=400&fit=crop' },
   ];
 
   const filteredItems = activeCategory === 'all'
