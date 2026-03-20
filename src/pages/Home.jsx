@@ -49,7 +49,7 @@ const Home = () => {
       description: 'Golden flaky pastry with spicy potato filling, served hot.',
       price: 'From Rs.20',
       tag: 'Most Ordered',
-      image: 'https://images.unsplash.com/photo-1627308595171-d1b5d0f8f7f4?w=600&h=420&fit=crop',
+      image: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=600&h=420&fit=crop',
     },
     {
       name: 'Authentic Filter Coffee',
