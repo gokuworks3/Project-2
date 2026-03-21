@@ -25,10 +25,12 @@
   --gradient-dark: linear-gradient(160deg, #1f2937 0%, #111827 100%);
   --gradient-gold: var(--gradient-accent);
   --gradient-gold-dark: var(--gradient-accent);
+  --gradient-premium: linear-gradient(135deg, #1a1f2e 0%, #2d3748 50%, #1a202c 100%);
+  --gradient-shine: linear-gradient(110deg, transparent 25%, rgba(255,255,255,0.2) 50%, transparent 75%);
 
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(32, 40, 52, 0.14);
-  --glass-blur: blur(20px);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(32, 40, 52, 0.12);
+  --glass-blur: blur(24px);
 
   --font-heading: 'Fraunces', Georgia, serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -43,24 +45,27 @@
   --space-3xl: 5.5rem;
   --space-4xl: 7rem;
 
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --radius-2xl: 38px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
   --radius-full: 999px;
 
-  --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.05);
-  --shadow-md: 0 16px 40px rgba(17, 24, 39, 0.09);
-  --shadow-lg: 0 24px 56px rgba(17, 24, 39, 0.12);
-  --shadow-xl: 0 36px 80px rgba(17, 24, 39, 0.15);
-  --shadow-accent: 0 18px 42px rgba(196, 139, 47, 0.26);
+  --shadow-sm: 0 4px 20px rgba(17, 24, 39, 0.04), 0 2px 8px rgba(17, 24, 39, 0.02);
+  --shadow-md: 0 12px 40px rgba(17, 24, 39, 0.08), 0 4px 16px rgba(17, 24, 39, 0.04);
+  --shadow-lg: 0 20px 56px rgba(17, 24, 39, 0.1), 0 8px 24px rgba(17, 24, 39, 0.05);
+  --shadow-xl: 0 32px 80px rgba(17, 24, 39, 0.12), 0 12px 32px rgba(17, 24, 39, 0.06);
+  --shadow-accent: 0 16px 48px rgba(196, 139, 47, 0.28), 0 6px 20px rgba(196, 139, 47, 0.12);
+  --shadow-glow: 0 0 60px rgba(196, 139, 47, 0.25);
+  --shadow-premium: 0 30px 70px -15px rgba(0, 0, 0, 0.2);
 
-  --transition-fast: 160ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 550ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-bounce: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --container-max: 1240px;
+  --container-max: 1260px;
   --container-padding: 1.5rem;
 }
 
@@ -171,28 +176,48 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 1rem 1.8rem;
+  padding: 1rem 1.9rem;
   border-radius: var(--radius-full);
   font-family: var(--font-accent);
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
-  will-change: transform;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-base);
+  will-change: transform, box-shadow;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-shine);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 .btn-primary {
   color: var(--color-white);
   background: var(--gradient-primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 0 0 0 rgba(32, 40, 52, 0);
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(32, 40, 52, 0.2);
 }
 
 .btn-secondary {
@@ -201,26 +226,34 @@ p {
   box-shadow: var(--shadow-md);
 }
 
+.btn-secondary:hover {
+  box-shadow: var(--shadow-xl);
+}
+
 .btn-outline {
   color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(32, 40, 52, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .btn-outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent-deep);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-glass {
   color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.24);
-  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   backdrop-filter: var(--glass-blur);
 }
 
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-highlight {
@@ -230,17 +263,17 @@ p {
 }
 
 .btn-highlight:hover {
-  box-shadow: 0 24px 48px rgba(196, 139, 47, 0.3);
+  box-shadow: 0 20px 50px rgba(196, 139, 47, 0.35), var(--shadow-glow);
 }
 
 .btn-sm {
-  padding: 0.78rem 1.3rem;
-  font-size: 0.82rem;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.84rem;
 }
 
 .btn-lg {
-  padding: 1.1rem 2rem;
-  font-size: 0.96rem;
+  padding: 1.15rem 2.2rem;
+  font-size: 0.98rem;
 }
 
 .glass-card {
@@ -249,27 +282,50 @@ p {
   backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition: all var(--transition-base);
+  will-change: transform, box-shadow;
 }
 
 .glass-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(196, 139, 47, 0.1);
+  border-color: rgba(196, 139, 47, 0.2);
 }
 
 .premium-card {
+  position: relative;
   background: var(--color-surface);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition: all var(--transition-base);
+  will-change: transform, box-shadow;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(196, 139, 47, 0) 0%, rgba(196, 139, 47, 0.3) 50%, rgba(196, 139, 47, 0) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.premium-card:hover::before {
+  opacity: 1;
 }
 
 .premium-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(196, 139, 47, 0.38);
+  transform: translateY(-12px) scale(1.015);
+  box-shadow: var(--shadow-xl), 0 0 50px rgba(196, 139, 47, 0.08);
 }
 
 .section-header {
@@ -308,39 +364,51 @@ p {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.52rem;
-  padding: 0.48rem 0.95rem;
+  gap: 0.55rem;
+  padding: 0.52rem 1.05rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
   font-family: var(--font-accent);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 .badge-live {
   color: var(--color-primary);
+  animation: badge-glow 3s ease-in-out infinite;
 }
 
 .badge-live::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--color-success);
-  box-shadow: 0 0 0 0 rgba(20, 164, 77, 0.3);
+  box-shadow: 0 0 12px rgba(20, 164, 77, 0.6);
   animation: pulse-dot 2s infinite;
+}
+
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(20, 164, 77, 0.15);
+  }
 }
 
 @keyframes pulse-dot {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(20, 164, 77, 0.38);
+    box-shadow: 0 0 0 0 rgba(20, 164, 77, 0.5);
   }
   70% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 11px rgba(20, 164, 77, 0);
+    transform: scale(1.15);
+    box-shadow: 0 0 0 12px rgba(20, 164, 77, 0);
   }
   100% {
     transform: scale(1);
@@ -349,17 +417,83 @@ p {
 }
 
 @keyframes float {
-  0%,
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
   100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-10px);
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 .animate-float {
-  animation: float 4.8s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
 }
 
 .text-center {
@@ -375,6 +509,220 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ========================================
+   Mobile-First Responsive Utilities
+   ======================================== */
+
+/* Touch Target Utilities - Ensure minimum 44px for accessibility */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.touch-target-lg {
+  min-height: 52px;
+  min-width: 52px;
+}
+
+/* Touch Action Utilities */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-none {
+  touch-action: none;
+}
+
+.touch-pan-x {
+  touch-action: pan-x;
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+/* Safe Area Utilities */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-left {
+  padding-left: env(safe-area-inset-left, 0);
+}
+
+.safe-right {
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+.safe-area-inset {
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+}
+
+/* Mobile-First Visibility Utilities */
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: block;
+}
+
+.show-mobile-flex {
+  display: flex;
+}
+
+.show-mobile-grid {
+  display: grid;
+}
+
+/* Responsive Flex Utilities */
+.flex-col-mobile {
+  flex-direction: column;
+}
+
+.flex-wrap-mobile {
+  flex-wrap: wrap;
+}
+
+.gap-sm-mobile {
+  gap: var(--space-sm);
+}
+
+/* Full Width on Mobile */
+.w-full-mobile {
+  width: 100%;
+}
+
+/* Mobile Stack Layout */
+.stack-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Overflow Utilities */
+.overflow-x-auto {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll Snap for Mobile Carousels */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-item {
+  scroll-snap-align: start;
+}
+
+/* Interactive State for Mobile */
+.interactive {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.interactive:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* Disable Text Selection on Interactive Elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Smooth Scroll Container */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide Scrollbar but Keep Functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive Text Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Aspect Ratio Utilities */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* Object Fit Utilities */
+.object-cover {
+  object-fit: cover;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+/* Position Utilities */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
 }
 
 ::selection {
@@ -411,6 +759,55 @@ p {
 
   body {
     padding-bottom: 90px;
+  }
+
+  /* Buttons minimum touch target on mobile */
+  .btn {
+    min-height: 48px;
+  }
+
+  .btn-sm {
+    min-height: 44px;
+  }
+}
+
+/* Tablet breakpoint - show desktop utilities */
+@media (min-width: 769px) {
+  .hide-mobile {
+    display: block;
+  }
+
+  .hide-tablet {
+    display: none;
+  }
+
+  .show-mobile,
+  .show-mobile-flex,
+  .show-mobile-grid {
+    display: none;
+  }
+
+  .flex-col-mobile {
+    flex-direction: row;
+  }
+
+  .stack-mobile {
+    flex-direction: row;
+  }
+
+  .w-full-mobile {
+    width: auto;
+  }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1025px) {
+  .hide-tablet {
+    display: block;
+  }
+
+  .hide-desktop {
+    display: none;
   }
 }
 

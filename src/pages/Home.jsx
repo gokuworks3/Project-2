@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO, { getLocalBusinessSchema, getOrganizationSchema } from '../components/SEO';
 import './Home.css';
 
 const Home = () => {
@@ -43,6 +44,7 @@ const Home = () => {
       price: 'From Rs.75',
       tag: 'Bestseller',
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=420&fit=crop',
+      alt: 'Signature chocolate truffle cake with rich ganache layers at Rudhra Bakes Coimbatore',
     },
     {
       name: 'Crispy Veg Puff',
@@ -50,6 +52,7 @@ const Home = () => {
       price: 'From Rs.20',
       tag: 'Most Ordered',
       image: 'https://images.unsplash.com/photo-1756137943313-fdea9bce6bdd?w=600&h=420&fit=crop',
+      alt: 'Crispy golden veg puff with spiced potato filling - most ordered at Rudhra Bakes',
     },
     {
       name: 'Authentic Filter Coffee',
@@ -57,6 +60,7 @@ const Home = () => {
       price: 'From Rs.25',
       tag: 'Local Favorite',
       image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=420&fit=crop',
+      alt: 'Authentic South Indian filter coffee served in traditional tumbler at Rudhra Bakes',
     },
   ];
 
@@ -106,22 +110,41 @@ const Home = () => {
     },
   ];
 
+  // Combined schema for homepage
+  const homeSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getLocalBusinessSchema(),
+      getOrganizationSchema(),
+    ],
+  };
+
   return (
     <div className="home">
-      <section className="hero">
+      <SEO
+        title="24/7 Bakery & Cafe in Coimbatore"
+        description="Rudhra Bakes - Fresh cakes, puffs, pizza, filter coffee & snacks served 24/7 in Coimbatore. Open all day near Sakthi Engineering College. Call 087788 73773 to order."
+        keywords="bakery Coimbatore, 24 hours bakery, filter coffee, veg puff, cakes near me, midnight snacks Coimbatore, Sakthi Engineering College bakery"
+        canonicalUrl="/"
+        structuredData={homeSchema}
+      />
+      <section className="hero" aria-labelledby="hero-title">
         <div className="hero__bg">
           <img
             src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=2000&h=1300&fit=crop"
-            alt="Warm premium bakery ambience"
+            alt="Warm and inviting bakery interior at Rudhra Bakes Coimbatore"
             className="hero__bg-image"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="hero__bg-overlay"></div>
         </div>
 
         <div className="container hero__container">
           <div className="hero__content">
-            <span className="hero__badge badge badge-live">Open Now • 24/7 Service</span>
-            <h1 className="hero__title">
+            <span className="hero__badge badge badge-live" aria-label="Currently open">Open Now • 24/7 Service</span>
+            <h1 id="hero-title" className="hero__title">
               Fresh Bakes, Snacks, and Coffee
               <span className="text-gradient"> Anytime You Need Comfort.</span>
             </h1>
@@ -129,8 +152,8 @@ const Home = () => {
               Trusted by local families and students in Coimbatore for quick service, affordable prices, and consistently fresh taste from morning to midnight.
             </p>
 
-            <div className="hero__ctas">
-              <a href="tel:+918778873773" className="btn btn-primary btn-lg">
+            <nav className="hero__ctas" aria-label="Quick actions">
+              <a href="tel:+918778873773" className="btn btn-primary btn-lg" aria-label="Call to order at 087788 73773">
                 Call to Order
               </a>
               <Link to="/menu" className="btn btn-outline btn-lg hero__cta-menu">
@@ -141,38 +164,45 @@ const Home = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-highlight btn-lg"
+                aria-label="Order via WhatsApp"
               >
                 WhatsApp Us
               </a>
-            </div>
+            </nav>
 
-            <div className="hero__trust">
-              <div className="hero__trust-item">
+            <div className="hero__trust" role="list" aria-label="Trust indicators">
+              <div className="hero__trust-item" role="listitem">
                 <strong>4.1★</strong>
                 <span>Google rating</span>
               </div>
-              <div className="hero__trust-item">
+              <div className="hero__trust-item" role="listitem">
                 <strong>200+</strong>
                 <span>customer reviews</span>
               </div>
-              <div className="hero__trust-item">
+              <div className="hero__trust-item" role="listitem">
                 <strong>Popular</strong>
                 <span>Veg Puff • Filter Coffee</span>
               </div>
             </div>
           </div>
 
-          <div className="hero__visual">
+          <div className="hero__visual" aria-hidden="true">
             <div className="hero__image hero__image--main">
               <img
                 src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=700&h=900&fit=crop"
-                alt="Premium bakery counter with fresh baked goods"
+                alt="Fresh bakery counter display with pastries and baked goods at Rudhra Bakes"
+                width="700"
+                height="900"
+                loading="eager"
               />
             </div>
             <div className="hero__image hero__image--secondary">
               <img
                 src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=420&h=420&fit=crop"
-                alt="Freshly baked pastry"
+                alt="Freshly baked vanilla pastry with cream"
+                width="420"
+                height="420"
+                loading="lazy"
               />
             </div>
             <div className="hero__floating-card glass-card animate-float">
@@ -205,29 +235,36 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="home-popular section">
+      <section className="home-popular section" aria-labelledby="popular-title">
         <div className="container">
           <div className="section-header">
             <span className="section-eyebrow">Popular Picks</span>
-            <h2 className="section-title">Customer Favorites You Should Try First</h2>
+            <h2 id="popular-title" className="section-title">Customer Favorites You Should Try First</h2>
             <p className="section-subtitle">
               Freshly made bestsellers that customers keep reordering.
             </p>
           </div>
 
-          <div className="home-popular__grid">
+          <div className="home-popular__grid" role="list" aria-label="Popular menu items">
             {popularItems.map((item) => (
-              <article key={item.name} className="popular-card premium-card">
+              <article key={item.name} className="popular-card premium-card" role="listitem">
                 <div className="popular-card__image-wrap">
-                  <img src={item.image} alt={item.name} className="popular-card__image" loading="lazy" />
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="popular-card__image"
+                    loading="lazy"
+                    width="600"
+                    height="420"
+                  />
                   <span className="popular-card__tag">{item.tag}</span>
                 </div>
                 <div className="popular-card__content">
                   <h3>{item.name}</h3>
                   <p>{item.description}</p>
                   <div className="popular-card__meta">
-                    <span>{item.price}</span>
-                    <Link to="/menu">View in menu</Link>
+                    <span aria-label={`Price: ${item.price}`}>{item.price}</span>
+                    <Link to="/menu" aria-label={`View ${item.name} in menu`}>View in menu</Link>
                   </div>
                 </div>
               </article>

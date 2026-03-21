@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO, { getBreadcrumbSchema } from '../components/SEO';
 import './About.css';
 
 const About = () => {
@@ -54,8 +55,20 @@ const About = () => {
     },
   ];
 
+  const aboutSchema = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+  ]);
+
   return (
     <div className="about-page">
+      <SEO
+        title="About Us - Our Story & Values"
+        description="Learn about Rudhra Bakes - Coimbatore's trusted 24/7 bakery near Sakthi Engineering College. 10+ years serving fresh cakes, snacks & coffee. 200+ happy reviews."
+        keywords="about Rudhra Bakes, bakery Coimbatore history, 24 hours bakery story, Sakthi Engineering College bakery, local bakery Coimbatore"
+        canonicalUrl="/about"
+        structuredData={aboutSchema}
+      />
       {/* Hero */}
       <section className="about-hero">
         <div className="about-hero__bg"></div>

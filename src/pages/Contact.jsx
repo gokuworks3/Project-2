@@ -1,8 +1,27 @@
+import SEO, { getLocalBusinessSchema, getBreadcrumbSchema } from '../components/SEO';
 import './Contact.css';
 
 const Contact = () => {
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getLocalBusinessSchema(),
+      getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Contact', path: '/contact' },
+      ]),
+    ],
+  };
+
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us - Location, Phone & Hours"
+        description="Contact Rudhra Bakes: Call 087788 73773, WhatsApp, or visit us at 66/3C Milakai Thottam, opposite Sakthi Engineering College, Coimbatore. Open 24/7."
+        keywords="Rudhra Bakes contact, bakery phone number Coimbatore, bakery location Sakthi Engineering College, 24 hours bakery address, WhatsApp order bakery"
+        canonicalUrl="/contact"
+        structuredData={contactSchema}
+      />
       {/* Hero */}
       <section className="contact-hero">
         <div className="contact-hero__bg"></div>

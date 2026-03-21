@@ -1,15 +1,18 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileStickyCTA from './components/MobileStickyCTA';
-import Home from './pages/Home';
-import Menu from './pages/Menu';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Gallery from './pages/Gallery';
-import Reviews from './pages/Reviews';
+import LoadingSpinner from './components/LoadingSpinner';
 import './App.css';
+
+// Lazy load pages for better performance and code splitting
+const Home = lazy(() => import('./pages/Home'));
+const Menu = lazy(() => import('./pages/Menu'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Reviews = lazy(() => import('./pages/Reviews'));
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -70,14 +73,16 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/reviews" element={<Reviews />} />
-        </Routes>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/reviews" element={<Reviews />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
       <MobileStickyCTA />

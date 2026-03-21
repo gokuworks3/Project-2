@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://rudhrabakes.com/</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=1200&h=630&fit=crop</image:loc>
+      <image:title>Rudhra Bakes - 24/7 Bakery in Coimbatore</image:title>
+      <image:caption>Fresh cakes, puffs, coffee and snacks served 24/7 at Rudhra Bakes</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Menu Page -->
+  <url>
+    <loc>https://rudhrabakes.com/menu</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop</image:loc>
+      <image:title>Rudhra Bakes Menu - Cakes, Snacks, Pizza, Beverages</image:title>
+      <image:caption>Complete menu with prices for cakes, puffs, pizza, burgers and beverages</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://rudhrabakes.com/about</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=700&fit=crop</image:loc>
+      <image:title>About Rudhra Bakes - Our Story</image:title>
+      <image:caption>Learn about Rudhra Bakes history and values</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://rudhrabakes.com/gallery</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=600&fit=crop</image:loc>
+      <image:title>Rudhra Bakes Food Gallery</image:title>
+      <image:caption>Photos of cakes, snacks, beverages and bakery ambiance</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Reviews Page -->
+  <url>
+    <loc>https://rudhrabakes.com/reviews</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://rudhrabakes.com/contact</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

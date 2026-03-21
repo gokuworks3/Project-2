@@ -3,7 +3,7 @@
   overflow: hidden;
   text-align: center;
   padding: 8rem 0 4.3rem;
-  background: var(--gradient-dark);
+  background: var(--gradient-premium);
 }
 
 .reviews-hero__bg {
@@ -12,6 +12,18 @@
   background:
     radial-gradient(36rem 20rem at 14% 22%, rgba(196, 139, 47, 0.26) 0%, rgba(196, 139, 47, 0) 70%),
     radial-gradient(38rem 23rem at 84% 78%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 72%);
+}
+
+.reviews-hero__bg::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  bottom: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(196, 139, 47, 0.12) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
 }
 
 .reviews-hero__content {
@@ -42,14 +54,23 @@
   padding: 1rem;
   border-radius: 18px;
   border: 1px solid rgba(32, 40, 52, 0.09);
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
 }
 
 .reviews-stats__item {
   text-align: center;
   border-radius: 14px;
   padding: 0.85rem 0.45rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
+  transition: all var(--transition-base);
+}
+
+.reviews-stats__item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: var(--shadow-md);
 }
 
 .reviews-stats__value {
@@ -95,6 +116,7 @@
   position: relative;
   padding: 1.2rem 1rem;
   border-radius: 18px;
+  transition: all var(--transition-base);
 }
 
 .review-card::before {
@@ -105,6 +127,16 @@
   right: 0;
   height: 3px;
   background: var(--gradient-accent);
+  transition: height var(--transition-base);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl), 0 0 40px rgba(196, 139, 47, 0.1);
+}
+
+.review-card:hover::before {
+  height: 4px;
 }
 
 .review-card__header {
@@ -125,6 +157,13 @@
   justify-content: center;
   font-family: var(--font-accent);
   font-weight: 700;
+  box-shadow: 0 6px 16px rgba(32, 40, 52, 0.2);
+  transition: all var(--transition-base);
+}
+
+.review-card:hover .review-card__avatar {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(32, 40, 52, 0.25);
 }
 
 .review-card__info strong {
@@ -174,8 +213,33 @@
   padding: 1.4rem 1rem;
   text-align: center;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(32, 40, 52, 0.08);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+  transform-origin: left;
+}
+
+.why-us-card:hover::before {
+  transform: scaleX(1);
+}
+
+.why-us-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(196, 139, 47, 0.08);
 }
 
 .why-us-card__icon {
@@ -188,6 +252,13 @@
   justify-content: center;
   color: var(--color-white);
   background: var(--gradient-primary);
+  box-shadow: 0 12px 30px rgba(32, 40, 52, 0.2);
+  transition: all var(--transition-base);
+}
+
+.why-us-card:hover .why-us-card__icon {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 16px 40px rgba(32, 40, 52, 0.25);
 }
 
 .why-us-card__title {
@@ -204,7 +275,7 @@
   overflow: hidden;
   text-align: center;
   padding: 5.6rem 0;
-  background: var(--gradient-dark);
+  background: var(--gradient-premium);
 }
 
 .reviews-cta__bg {
@@ -213,6 +284,30 @@
   background:
     radial-gradient(28rem 18rem at 18% 30%, rgba(196, 139, 47, 0.26) 0%, rgba(196, 139, 47, 0) 70%),
     radial-gradient(28rem 18rem at 84% 72%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.reviews-cta__bg::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  left: -150px;
+  top: -200px;
+  background: radial-gradient(circle, rgba(196, 139, 47, 0.18) 0%, transparent 70%);
+  animation: float 12s ease-in-out infinite;
+}
+
+.reviews-cta__bg::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  right: -100px;
+  bottom: -150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite reverse;
 }
 
 .reviews-cta__content {

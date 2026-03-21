@@ -1,3 +1,4 @@
+import SEO, { getFAQSchema, getBreadcrumbSchema } from '../components/SEO';
 import './Reviews.css';
 
 const Reviews = () => {
@@ -93,14 +94,44 @@ const Reviews = () => {
         fill={i < count ? 'currentColor' : 'none'}
         stroke="currentColor"
         strokeWidth="1.5"
+        aria-hidden="true"
       >
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
       </svg>
     ));
   };
 
+  const reviewsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getFAQSchema(),
+      getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Reviews', path: '/reviews' },
+      ]),
+      {
+        '@type': 'AggregateRating',
+        itemReviewed: {
+          '@type': 'LocalBusiness',
+          name: 'Rudhra Bakes',
+        },
+        ratingValue: '4.1',
+        reviewCount: '207',
+        bestRating: '5',
+        worstRating: '1',
+      },
+    ],
+  };
+
   return (
     <div className="reviews-page">
+      <SEO
+        title="Customer Reviews - 4.1★ Rating from 200+ Reviews"
+        description="Read 200+ customer reviews of Rudhra Bakes Coimbatore. Rated 4.1 stars for fresh cakes, puffs, filter coffee. See why locals trust us 24/7 near Sakthi College."
+        keywords="Rudhra Bakes reviews, bakery reviews Coimbatore, customer testimonials, 24 hours bakery rating, best bakery Coimbatore reviews"
+        canonicalUrl="/reviews"
+        structuredData={reviewsSchema}
+      />
       {/* Hero */}
       <section className="reviews-hero">
         <div className="reviews-hero__bg"></div>

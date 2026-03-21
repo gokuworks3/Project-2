@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO, { getBreadcrumbSchema } from '../components/SEO';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -14,26 +15,49 @@ const Gallery = () => {
   ];
 
   const images = [
-    { id: 1, category: 'cakes', src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop', alt: 'Chocolate truffle cake', size: 'large' },
-    { id: 2, category: 'beverages', src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop', alt: 'Filter coffee' },
-    { id: 3, category: 'snacks', src: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop', alt: 'Fresh puffs' },
-    { id: 4, category: 'cakes', src: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=400&fit=crop', alt: 'Black forest cake' },
-    { id: 5, category: 'ambiance', src: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=600&fit=crop', alt: 'Bakery interior', size: 'large' },
-    { id: 6, category: 'snacks', src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop', alt: 'Pizza' },
-    { id: 7, category: 'beverages', src: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&h=400&fit=crop', alt: 'Masala tea' },
-    { id: 8, category: 'cakes', src: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=400&fit=crop', alt: 'Fruit cake' },
-    { id: 9, category: 'snacks', src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=600&fit=crop', alt: 'Burger', size: 'large' },
-    { id: 10, category: 'beverages', src: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=400&fit=crop', alt: 'Cold coffee' },
-    { id: 11, category: 'cakes', src: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=400&fit=crop', alt: 'Cupcakes' },
-    { id: 12, category: 'ambiance', src: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop', alt: 'Fresh bakes display' },
+    { id: 1, category: 'cakes', src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop', alt: 'Chocolate truffle cake with rich ganache at Rudhra Bakes Coimbatore', size: 'large' },
+    { id: 2, category: 'beverages', src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop', alt: 'Authentic South Indian filter coffee served at Rudhra Bakes' },
+    { id: 3, category: 'snacks', src: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop', alt: 'Freshly baked crispy puffs from Rudhra Bakes bakery' },
+    { id: 4, category: 'cakes', src: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=400&fit=crop', alt: 'Black forest cake with cherries and cream at Rudhra Bakes' },
+    { id: 5, category: 'ambiance', src: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=600&h=600&fit=crop', alt: 'Warm bakery interior of Rudhra Bakes 24/7 cafe in Coimbatore', size: 'large' },
+    { id: 6, category: 'snacks', src: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop', alt: 'Fresh vegetable pizza with cheese at Rudhra Bakes' },
+    { id: 7, category: 'beverages', src: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&h=400&fit=crop', alt: 'Hot masala tea with spices at Rudhra Bakes cafe' },
+    { id: 8, category: 'cakes', src: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=400&fit=crop', alt: 'Fresh fruit cake with seasonal fruits at Rudhra Bakes' },
+    { id: 9, category: 'snacks', src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=600&fit=crop', alt: 'Juicy chicken burger with fresh vegetables at Rudhra Bakes', size: 'large' },
+    { id: 10, category: 'beverages', src: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=400&fit=crop', alt: 'Cold coffee with ice cream at Rudhra Bakes cafe' },
+    { id: 11, category: 'cakes', src: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=400&fit=crop', alt: 'Colorful cupcakes assortment at Rudhra Bakes bakery' },
+    { id: 12, category: 'ambiance', src: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=400&fit=crop', alt: 'Fresh bakes display counter at Rudhra Bakes Coimbatore' },
   ];
 
   const filteredImages = activeFilter === 'all'
     ? images
     : images.filter(img => img.category === activeFilter);
 
+  const gallerySchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ImageGallery',
+        name: 'Rudhra Bakes Food Gallery',
+        description: 'Photos of cakes, snacks, beverages, and bakery ambiance at Rudhra Bakes Coimbatore',
+        url: 'https://rudhrabakes.com/gallery',
+      },
+      getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Gallery', path: '/gallery' },
+      ]),
+    ],
+  };
+
   return (
     <div className="gallery-page">
+      <SEO
+        title="Food Gallery - Photos of Cakes, Snacks & Cafe"
+        description="Browse photos of fresh cakes, crispy puffs, pizza, coffee & bakery ambiance at Rudhra Bakes Coimbatore. See what we serve 24/7 near Sakthi Engineering College."
+        keywords="bakery photos Coimbatore, cake images, food gallery, Rudhra Bakes pictures, bakery near me photos, fresh bakes images"
+        canonicalUrl="/gallery"
+        structuredData={gallerySchema}
+      />
       {/* Hero */}
       <section className="gallery-hero">
         <div className="gallery-hero__bg"></div>

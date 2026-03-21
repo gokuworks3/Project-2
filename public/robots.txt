@@ -1,0 +1,29 @@
+# Rudhra Bakes - robots.txt
+# https://rudhrabakes.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rudhrabakes.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block common non-content paths
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /assets/*.map$
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
